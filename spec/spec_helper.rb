@@ -1,8 +1,16 @@
 require 'rack'
 require 'rspec'
 require 'rack/test'
+require 'capybara/rspec'
+
+ENV[ 'RACK_ENV'   ] = 'test'
 
 require './app/init'
+
+
+Capybara.app = app
+Capybara.save_and_open_page_path = './tmp'
+
 
 RSpec.configure do |config|
   config.filter_run focus:true
@@ -18,7 +26,8 @@ RSpec.configure do |config|
     /spec\/spec_helper\.rb/,
     /lib\/rspec\/(core|expectations|matchers|mocks)/
   ]
-  
+
   config.before( :each ) do
+    Mongoid.purge!
   end
 end

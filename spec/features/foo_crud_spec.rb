@@ -8,8 +8,13 @@ describe 'Foo CRUD', type: :feature , js: :true do
     expect( page ).to have_content 'Create New Foo'
 
     within 'form' do
-      fill_in 'name',       with:'Matz'
+      fill_in 'name', with:'Matz'
       click_button 'Submit'
     end
+  end
+
+  specify do
+    expect( page ).to have_content 'All Foos'
+    expect( page ).to have_content 'Name: Matz'
   end
 end

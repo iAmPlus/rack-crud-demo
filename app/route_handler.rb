@@ -1,4 +1,7 @@
 class RouteHandler
+  include FooRequest
+  include CRUDRequest
+
   def initialize env, params, url_params
     @env = env
     @params = params
@@ -9,15 +12,15 @@ class RouteHandler
     Rack::Response.new( 'Your request was GET /', 200 )
   end
 
-  def get_foos
-    Rack::Response.new( "Your request was GET /foos with @url_params #{ @url_params }", 200 )
-  end
-
-  def post_foos
-    Rack::Response.new( "Your request was POST /foos with body params #{ @params }", 200 )
-  end
-
   def not_found
     Rack::Response.new( '404: There is no route for your request.', 404 )
+  end
+
+  def render model, page, data
+    content_template = File.read "templates/#{ model }/#{ page }.mustache"
+    content = Mustache.render( content_template, { data:data })
+
+    page_template = File.read( 'templates/layout.mustache' )
+    Mustache.render page_template, { content:content }
   end
 end
