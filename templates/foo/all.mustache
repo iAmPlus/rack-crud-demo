@@ -1,0 +1,24 @@
+{{#data}}
+
+<h1>{{ count }} Foos</h1>
+
+<table>
+  <tr>
+    {{#fields}}
+      <th>{{ . }}</th>
+    {{/fields}}
+      <th><!-- show --></th>
+      <th><!-- edit --></th>
+  </tr>
+
+  {{#instances}}
+    <tr>
+      <td>{{ name       }}</td>
+      <td><a href="/foos/{{ _id }}/show">Show</a></td>
+      <td><a href="/foos/{{ _id }}/edit">Edit</a></td>
+    </tr>
+  {{/instances}}
+</table>
+{{/data}}
+
+<a href='/foos/create'>Create New Foo</a>

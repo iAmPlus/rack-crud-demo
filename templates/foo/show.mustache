@@ -1,0 +1,18 @@
+<h1><span>Showing Foo</span>
+    <span><a href='/foos'>All Foos</a></span>
+</h1>
+
+{{#data}}
+
+<table>
+  {{#instance}}
+    <tr>
+      <td>name</td>
+      <td>{{ name }}</td>
+    </tr>
+  {{/instance}}
+</table>
+
+<button class='delete' onclick="deleteRequest('foo', '{{ id }}')">Delete</button>
+
+{{/data}}

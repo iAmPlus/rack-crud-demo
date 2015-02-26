@@ -1,0 +1,17 @@
+{{#data}}
+
+<h1><span>{{ header }}</span>
+    <span><a href='/foos'>All Foos</a></span></h1>
+
+<form>
+  {{#instance}}
+    <label for='name'>name</label>
+    <input type='text' name='name' value='{{ name }}'><br>
+  {{/instance}}
+
+  <button class='submit' type='button' onclick='{{ submit_method }}'>Submit</button>
+
+  <div class='errors'></div>
+</form>
+
+{{/data}}
