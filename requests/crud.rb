@@ -12,7 +12,7 @@ module CRUDRequest
   end
 
   def create_for klass
-    object = klass.create_for( @params )
+    object = klass.create( @params )
 
     if object.valid?
       return Response.ok
@@ -23,7 +23,7 @@ module CRUDRequest
 
   def get_for klass
     instances = klass.all
-                     .map( &:attrs )
+                     .map( &:attributes )
                      .sort_by{| instance | instance[ :display_name ]}
 
     fields = klass.new.editable_fields

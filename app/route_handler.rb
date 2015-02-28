@@ -9,11 +9,25 @@ class RouteHandler
   end
 
   def get_root
-    Rack::Response.new( 'Your request was GET /', 200 )
+    Response.ok_for 'Your request was GET /'
   end
 
   def not_found
-    Rack::Response.new( '404: There is no route for your request.', 404 )
+    # raise "Not found: #{ @env[ 'REQUEST_PATH' ]}"
+
+    Response.not_found_for '404: There is no route for your request.'
+  end
+
+  def get_js
+    Response.ok_for File.read( "public/js/#{ @url_params[ :file ]}" )
+  end
+
+  def get_js_vendor
+    Response.ok_for File.read( "public/js/vendor/#{ @url_params[ :file ]}" )
+  end
+
+  def get_css_vendor
+    Response.ok_for File.read( "public/css/vendor/#{ @url_params[ :file ]}" )
   end
 
   def render model, page, data

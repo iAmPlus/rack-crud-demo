@@ -12,7 +12,7 @@ class Request
       when :POST, :PUT
         body = @request.body.read.to_s
 
-        JSON.parse( body )
+        Rack::Utils.parse_nested_query( body ).symbolize_keys
     end
   end
 

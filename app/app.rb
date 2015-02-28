@@ -9,8 +9,8 @@ class App
     end
 
     def handle_error e
-      puts "Error processing request: #{ e.message }"
-      puts e.backtrace[0..6]
+      puts "\nError processing request: #{ e.message }"
+      puts e.backtrace[ 0..2 ]
 
       Rack::Response.new( 'Error', 500 ).finish
     end

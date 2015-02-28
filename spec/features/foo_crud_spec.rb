@@ -14,7 +14,8 @@ describe 'Foo CRUD', type: :feature , js: :true do
   end
 
   specify do
-    expect( page ).to have_content 'All Foos'
-    expect( page ).to have_content 'Name: Matz'
+    expect( current_path ).to eq '/foos'
+    expect( page ).to have_content '1 Foos'
+    expect( page ).to have_content 'Matz'
   end
 end

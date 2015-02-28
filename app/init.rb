@@ -6,6 +6,7 @@ require 'rack'
 require 'rack/routing'
 require 'mongoid'
 require 'mustache'
+require 'awesome_print'
 
 # Requests
 require './requests/crud'
