@@ -4,7 +4,7 @@ function deleteRequest( model, id ){
 
     $.ajax({
         type: 'DELETE',
-        url: '/' + model + '/' + id,
+        url: '/' + model + 's/' + id,
         data: { id:id }
     })
     .done( function(){
@@ -42,7 +42,7 @@ function putObject( model, id ){
 
     $.ajax({
         type: 'PUT',
-        url: '/' + model + '/' + id,
+        url: '/' + model + 's/' + id,
         data: data
     })
     .done( function(){
