@@ -11,5 +11,9 @@ class Response
     def not_found_for body
       Rack::Response.new body, 404
     end
+
+    def unprocessable_entity_for body
+      Rack::Response.new body, 422
+    end
   end
 end

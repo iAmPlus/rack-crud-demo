@@ -20,7 +20,7 @@ class Request
     routing = Rack::Routing::Router.for( @env )
     @url_params = routing[ :params ]
     
-    rh = RouteHandler.new( @env, @params, @url_params )
+    rh = RequestHandler.new( @env, @params, @url_params )
     rh.send routing[ :method ]
   end
 end

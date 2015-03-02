@@ -14,10 +14,8 @@ module CRUDRequest
   def create_for klass
     object = klass.create( @params )
 
-    if object.valid?
-      return Response.ok
-    end
-
+    return Response.ok if object.valid?
+  
     Response.unprocessable_entity_for object.errors.full_messages
   end
 

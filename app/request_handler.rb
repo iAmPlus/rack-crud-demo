@@ -1,4 +1,4 @@
-class RouteHandler
+class RequestHandler
   include FooRequest
   include CRUDRequest
 

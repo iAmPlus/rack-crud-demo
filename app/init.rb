@@ -16,7 +16,7 @@ require './requests/foo'
 require_relative 'app'
 require_relative 'builder'
 require_relative 'request'
-require_relative 'route_handler'
+require_relative 'request_handler'
 require_relative 'response'
 
 # CRUD
