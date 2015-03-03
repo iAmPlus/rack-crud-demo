@@ -10,7 +10,7 @@ function deleteRequest( model, id ){
     .done( function(){
         console.log('Done.');
        window.location.href = '/' + model + 's';
-    })
+    });
 }
 
 
@@ -31,7 +31,7 @@ function postObject( model ){
     .fail( function(response){
         console.log('Failure.');
         $('div.errors').text(response.getResponseHeader('Warning'));
-    })
+    });
 }
 
 
@@ -52,5 +52,5 @@ function putObject( model, id ){
     .fail( function(response){
         console.log('Failure.');
         $('div.errors').text(response.getResponseHeader('Warning'));
-    })
+    });
 }
