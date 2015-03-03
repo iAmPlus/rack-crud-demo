@@ -6,6 +6,7 @@ gem 'awesome_print'
 gem 'rake'
 gem 'rack'
 gem 'rack-routing'
+gem 'rack-crud', '0.1.4'
 gem 'mustache'
 
 

@@ -83,6 +83,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.0)
+    rack-crud (0.1.4)
     rack-routing (0.0.7)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -136,6 +137,7 @@ DEPENDENCIES
   mongoid (~> 4.0.0)
   mustache
   rack
+  rack-crud (= 0.1.4)
   rack-routing
   rack-test
   rake
