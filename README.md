@@ -25,6 +25,7 @@ PUT    /foos/:id
 DELETE /foos/:id  
 ```
 
+Now, when `/foos` is requested, the app will render the "index" page for foos. GET `foos/create` to create a new model, and GET `foos/:id/show` to show and `foos/:id/edit` to edit.
 
 ### To run specs:
 `rspec` or `guard`
