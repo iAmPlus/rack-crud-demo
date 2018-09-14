@@ -3,21 +3,17 @@ require 'rspec'
 require 'rack/test'
 require 'capybara/rspec'
 
-ENV[ 'RACK_ENV'   ] = 'test'
+ENV[ 'RACK_ENV' ] = 'test'
 
 require './app/init'
-
-
-Capybara.app = app
-Capybara.save_and_open_page_path = './tmp'
-
 
 RSpec.configure do |config|
   config.filter_run focus:true
   config.run_all_when_everything_filtered = true
   config.color = true
 
-  include Rack::Test::Methods
+  config.include Rack::Test::Methods
+  config.include Capybara::DSL
 
   config.backtrace_exclusion_patterns = [
     /\/lib\d*\/ruby\//,
@@ -30,4 +26,11 @@ RSpec.configure do |config|
   config.before( :each ) do
     Mongoid.purge!
   end
+end
+
+Capybara.configure do |config|
+  config.app = app
+  # config.default_driver = :selenium_chrome
+  config.javascript_driver = :selenium_chrome_headless
+  config.save_path = 'tmp/capybara'
 end

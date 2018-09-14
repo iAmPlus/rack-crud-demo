@@ -11,6 +11,7 @@ describe 'Foo CRUD', type: :feature , js: :true do
       fill_in 'name', with:'Matz'
       click_button 'Submit'
     end
+    sleep 0.2
   end
 
   specify 'create' do
@@ -21,10 +22,12 @@ describe 'Foo CRUD', type: :feature , js: :true do
 
   specify 'edit' do
     click_link 'Edit'
+
     within 'form' do
       fill_in 'name', with:'New Name'
       click_button 'Submit'
     end
+    sleep 0.2
     
     expect( current_path ).to eq '/foos'
     expect( page ).to have_content '1 Foos'
@@ -40,6 +43,7 @@ describe 'Foo CRUD', type: :feature , js: :true do
   specify 'delete' do
     click_link 'Show'
     click_button 'Delete'
+    sleep 0.2
 
     expect( current_path ).to eq '/foos'
     expect( page ).to have_content '0 Foos'
